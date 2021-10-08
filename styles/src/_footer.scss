@@ -1,0 +1,21 @@
+/**
+ * Подвал сайта
+ * */
+
+.footer {
+	margin-top: 1rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: $indent $indent * 2;
+	background-color: lighten( $brand-default, 75% );
+	box-sizing: border-box;
+}
+
+.footer .copyright {
+	@extend %small;
+}
+
+.footer .developer {
+	@extend %small;
+}

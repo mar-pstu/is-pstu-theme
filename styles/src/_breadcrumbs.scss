@@ -1,0 +1,36 @@
+/**
+ * Хлебные крошки
+ * */
+
+.breadcrumbs {
+	padding-left: 0;
+	list-style-type: none;
+	font-size: 0;
+	line-height: 0;
+	margin-top: 0;
+	margin-bottom: $indent;
+}
+
+.breadcrumbs::before {
+	content: '\1F3E0';
+	display: inline-block;
+	color: $brand-primary;
+	font-size: $font-size-base * 1.2;
+	line-height: $line-height-base * 1.2;
+}
+
+.breadcrumbs li {
+	display: inline-block;
+}
+
+.breadcrumbs li + li::before {
+	content: '>';
+	margin: 0 $indent;
+	font-size: $font-size-base * 0.75;
+	line-height: $line-height-base * 0.75;
+}
+
+.breadcrumbs li a {
+	font-size: $font-size-base * 0.75;
+	line-height: $line-height-base * 0.75;
+}

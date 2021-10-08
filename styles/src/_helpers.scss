@@ -1,0 +1,35 @@
+/**
+ * Переменные
+ * */
+
+$font-size-base: 16px;
+$line-height-base: 1.5;
+$brand-default: #262626;
+$brand-primary: #0c426f;
+$brand-success: #990100;
+$indent: 1rem;
+
+
+/**
+ * Наследование
+ * */
+%small {
+	font-size: 75%;
+}
+
+%sr-only {
+    opacity: 0;
+    visibility: hidden;
+    width: 1px;
+    height: 1px;
+    position: absolute;
+}
+
+
+%button {
+    background-color: #fff;
+}
+
+%button-primary {
+    background-color: #fff;
+}

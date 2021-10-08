@@ -1,0 +1,9 @@
+/**
+ * Список дочерних страниц первого уровня
+ * */
+
+.subpages {
+	padding: $indent $indent * 2;	
+	background-color: lighten( $brand-default, 75% );
+	margin-bottom: $indent;
+}

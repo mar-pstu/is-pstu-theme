@@ -1,0 +1,20 @@
+body {
+	font-size: $font-size-base;
+	line-height: $line-height-base;
+	font-family: 'Montserrat', sans-serif;
+	color: $brand-default;
+}
+
+a:link,
+a:visited,
+a:active {
+	color: darken( $brand-default, 25% );
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.sr-only { @extend %sr-only; }
+

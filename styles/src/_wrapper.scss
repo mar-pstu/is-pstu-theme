@@ -1,0 +1,33 @@
+.wrapper {
+	display: flex;
+	flex-direction: row;
+	justify-content: stretch;
+	align-items: stretch;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+}
+
+.column-side {
+	width: 20rem;
+	flex-shrink: 0;
+	background-color: $brand-primary;
+	color: #fff;
+	display: flex;
+	flex-direction: column;
+	overflow-x: hidden;
+	overflow-y: auto;
+	padding-left: $indent;
+	padding-right: $indent;
+	box-sizing: border-box;
+}
+
+.column-side a {
+	color: #fff;
+}
+
+.column-content {
+	overflow-x: hidden;
+	overflow-y: auto;
+	box-sizing: border-box;
+}
