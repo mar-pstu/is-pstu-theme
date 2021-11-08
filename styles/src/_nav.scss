@@ -2,11 +2,39 @@
  * Меню навигации
  * */
 
+.nav {
+	margin: 0 0 $indent auto;
+	order: 3;
+	@media only screen and ( min-width: $screen-nav-hide ) {
+		width: 100%;
+		margin-top: $indent;
+		margin-left: 0;
+	}
+}
+
 .nav ul {
+	display: none;
 	padding-left: 0;
 	list-style-type: none;
-	margin-left: -$indent;
-	margin-right: -$indent;
+	margin-left: 0;
+	margin-right: 0;
+	@media only screen and ( min-width: $screen-nav-hide ) {
+		display: block;
+		margin-left: -$indent;
+		margin-right: -$indent;
+		position: static !important;
+	}
+}
+
+.nav ul.active {
+	display: block;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	right: 0;
+	z-index: 999;
+	background-color: $brand-primary;
+	margin: 0;
 }
 
 .nav a {
@@ -22,4 +50,41 @@
 
 .nav .current {
 	background-color: $brand-success;
+}
+
+.nav .burger {
+	display: initial;
+	border: none;
+	margin-top: $indent / 2;
+	margin-bottom: $indent / 2;
+	padding: $indent / 4 0 $indent / 4 $indent;
+	color: #fff;
+	background-color: transparent;
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	@media only screen and ( min-width: $screen-xs ) {
+		border: .1rem solid rgba( 255, 255, 255, .5 );
+		padding: $indent / 4 $indent;
+	}
+	@media only screen and ( min-width: $screen-nav-hide ) {
+		display: none;
+	}
+}
+
+.nav .line {
+	display: block;
+	background-color: #fff;
+	height: .1rem;
+	width: 2rem;
+	margin: $indent / 3 0;
+}
+
+.nav .label {
+	margin-left: $indent;
+	margin-right: $indent;
+	display: none;
+	@media only screen and ( min-width: $screen-xs ) {
+		display: initial;
+	}
 }

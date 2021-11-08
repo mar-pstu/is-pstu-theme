@@ -1,0 +1,30 @@
+<nav id="nav" class="nav">
+
+	<button class="burger" id="nav-burger">
+		<span class="label">Відкрити меню</span>
+		<span class="overlay">
+			<span class="line"></span>
+			<span class="line"></span>
+			<span class="line"></span>
+		</span>
+	</button>
+
+	<ul id="nav-list">
+
+		<li class="{{ current_page.id == 'index' ? 'current' : 'other' }}"><a href="{{ base_url }}">Головна</a></li>
+
+		{% for page in pages( 'index' ) | sort_by( 'order' ) if not page.meta.hidden %}
+	
+			{% if page.id == current_page.id or page.id == current_page.id | split( '\/' ) | first ~ '\/index' %}
+				{% set current_class = 'current' %}
+			{% else %}
+				{% set current_class = 'other' %}
+			{% endif %}
+
+			<li class="{{ current_class }}"><a href="{{ page.url }}">{{ page.title }}</a></li>
+
+		{% endfor %}
+
+	</ul>
+
+</nav>

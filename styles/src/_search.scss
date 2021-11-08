@@ -1,14 +1,75 @@
 /**
+ * Результаты поиска
+ * */
+
+.search-results {
+	@extend %pl-0;
+	list-style-type: none;
+	counter-reset: search;
+}
+
+.search-results .entry {
+	@extend %pt-1;
+	@extend %pb-1;
+	display: flex;
+	flex-direction: row;
+	justify-content: stretch;
+	align-items: center;
+}
+
+.search-results .entry::before {
+	content: counter( search );
+	counter-increment: search;
+	font-weight: bold;
+	margin-right: $indent;
+	padding: $indent * .25;
+	background-color: darken( $border-color, 25% );
+	color: #fff;
+	width: $font-size-base * $line-height-base;
+	height: $font-size-base * $line-height-base;
+	display: inline-block;
+	text-align: center;
+}
+
+.search-results .entry + .entry {
+	border-top: 1px solid $border-color;
+}
+
+.search-results .entry a {
+	flex-grow: 1;
+}
+
+.search-results .entry .author,
+.search-results .entry .date {
+	@extend %small;
+	margin-left: auto;
+	padding-left: $indent;
+	padding-right: $indent;
+}
+
+.search-results .entry .author + .date {
+	margin-left: 0;
+}
+
+/**
  * Форма поиска
  * */
 
-.searchform {
+.search-form {
 	display: block;
 	position: relative;
 	box-sizing: border-box;
+	width: 75%;
+	order: 2;
+	@media only screen and ( min-width: $screen-xs ) {
+		width: 50%;
+	}
+	@media only screen and ( min-width: $screen-nav-hide ) {
+		width: 100%;
+	}
 }
 
-.searchform [type=search] {
+.search-form [type=search] {
 	position: relative;
 	z-index: 1;
 	display: block;
@@ -17,7 +78,7 @@
 	padding-right: 2rem;
 }
 
-.searchform [type=submit] {
+.search-form [type=submit] {
 	display: block;
 	position: absolute;
 	background-position: center center;

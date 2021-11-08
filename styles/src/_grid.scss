@@ -1,0 +1,31 @@
+.grid {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: stretch;
+	margin: $indent;
+	flex-wrap: wrap;
+	margin: 0 $indent / -4 $indent $indent / -4;
+}
+
+.grid .cell {
+	width: 100%;
+	padding: 0 $indent / 4 $indent / 2 $indent / 4;
+	box-sizing: border-box;
+	@media only screen and ( min-width: $screen-sm ) {
+		width: 50%;
+	}
+	@media only screen and ( min-width: $screen-md ) {
+		width: 33.33%;
+	}
+}
+
+
+.grid.two .cell {
+	@media only screen and ( min-width: $screen-sm ) {
+		width: 50%;
+	}
+	@media only screen and ( min-width: $screen-md ) {
+		width: 50%;
+	}
+}

@@ -1,0 +1,15 @@
+{% if current_page.id != 'index' and not current_page.meta.hidden  %}
+	{% if ( previous_page and not previous_page.hidden and not 'search' == previous_page.meta.template ) or ( next_page and not next_page.hidden and not 'search' == next_page.meta.template ) %}
+		<nav class="pager" aria-label="...">
+			
+			{% if next_page and not next_page.hidden and not 'search' == next_page.meta.template %}
+				<a class="previous item" href="{{ next_page.url }}" title="Дивитись наступну сторінку"><span class="title">{{ next_page.title }}</span></a>
+			{% endif %}
+
+			{% if previous_page and not previous_page.hidden and not 'search' == previous_page.meta.template %}
+				<a class="next item" href="{{ previous_page.url }}" title="Дивитись попередню сторінку"><span class="title">{{ previous_page.title }}</span></a>
+			{% endif %}
+
+		</nav>
+	{% endif %}
+{% endif %}

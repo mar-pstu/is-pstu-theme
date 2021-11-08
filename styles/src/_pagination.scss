@@ -1,0 +1,19 @@
+/*
+	Переключение между страницами для новостей
+*/
+
+.pagination {
+
+	&-link {
+		@extend %d-inline-block;
+		@extend %pl-2;
+		@extend %pr-2;
+	}
+
+	&-summary {
+		@extend %d-inline-block;
+		@extend %pl-2;
+		@extend %pr-2;
+	}
+
+}

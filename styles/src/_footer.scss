@@ -8,8 +8,10 @@
 	justify-content: space-between;
 	align-items: center;
 	padding: $indent $indent * 2;
-	background-color: lighten( $brand-default, 75% );
+	background-color: $border-color;
 	box-sizing: border-box;
+	margin-top: auto;
+	width: 100%;
 }
 
 .footer .copyright {

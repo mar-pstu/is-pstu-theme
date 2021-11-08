@@ -1,0 +1,16 @@
+.info {
+	@extend %small;
+	text-align: right;
+	color: darken( $border-color, 50% );
+	margin-bottom: auto;
+}
+
+.info time {
+	display: inline-block;
+	margin-left: $indent * 2;
+}
+
+.info .author {
+	display: inline-block;
+	margin-left: $indent * 2;
+}

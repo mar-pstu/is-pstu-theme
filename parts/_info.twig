@@ -1,0 +1,11 @@
+<div class="info">
+	
+	{% if current_page.author and current_page.author|trim|length %}
+		<span class="author">Автор: {{ current_page.author }}</span>
+	{% endif %}
+	
+	{% if current_page.date_formatted and current_page.date|trim|length %}
+		<time datetime="{{ time }}">Дата публикації: {{ current_page.date_formatted }}</time>
+	{% endif %}
+
+</div>

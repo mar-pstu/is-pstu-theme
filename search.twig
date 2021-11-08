@@ -1,0 +1,27 @@
+{% include( "parts/_header.twig" ) %}
+
+<h1>Результати пошуку <span class="text-primary ml-3">"{{ url_param( 'q','string' )|trim }}"</span></h1>
+
+{% if description %}
+	<p>{{ description }}</p>
+{% endif %}
+
+{% if search_num_results %}
+
+	<p>Знайдено сторінок: <b class="text-primary">{{ search_num_results }}</b></p>
+
+	<ol class="search-results">
+		{% for page in search_results %}
+			<li class="entry">
+				<a href="{{ page.url }}">{{ page.title }}</a>
+				{% if page.author %}<span class="author">{{ page.author }}</span>{% endif %}
+				{% if page.date %}<time class="date" datetime="{{ time }}">{{ page.date }}</span>{% endif %}
+			</li>
+		{% endfor %}
+	</ol>
+
+{% else %}
+	<p>Нажаль ничого не знайдено.</p>
+{% endif %}
+
+{% include( "parts/_footer.twig" ) %}

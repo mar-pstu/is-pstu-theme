@@ -1,0 +1,49 @@
+{% if 'index' != current_page.id %}
+
+	<ul id="breadcrumbs" class="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
+
+		<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+			<a href="{{ base_url }}" title="Главная" itemprop="item">
+				<span itemprop="name">Головна</span>
+				<meta itemprop="position" content="0">
+			</a>
+		</li>
+
+		{% set break = false %}
+
+		{% for n in 0..( current_page.id|split('\/')|length - 1 ) if not break %}
+			
+			{% set key = '' %}
+			{% for i in 0..n %}
+				{% set key = key ~ current_page.id|split('\/')[ i ] %}
+				{% if i != n %}
+					{% set key = key ~ '\/' %}
+				{% endif %}
+			{% endfor %}
+			
+			{% set key = key ~ '\/index' %}
+
+			{% if pages[ key ] %}
+				<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+					<a href="{{ pages[ key ].url }}" title="{{ pages[ key ].meta.title }}" itemprop="item">
+						<span itemprop="name">{{ pages[ key ].title }}</span>
+						<meta itemprop="position" content="{{ ( n + 1 ) }}">
+					</a>
+				</li>
+				{% if pages[ key ].id == current_page.id %}
+					{% set break = true %}
+				{% endif %}
+			{% else %}
+				<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+					<a href="{{ current_page.url }}" title="{{ current_page.meta.title }}" itemprop="item">
+						<span itemprop="name">{{ current_page.title }}</span>
+						<meta itemprop="position" content="{{ ( n + 1 ) }}">
+					</a>
+				</li>
+			{% endif %}
+
+		{% endfor %}
+
+	</ul>
+
+{% endif %}

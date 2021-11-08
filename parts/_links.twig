@@ -1,0 +1,11 @@
+{% if config.links %}
+	<ul class="links">
+		{% for link in config.links %}
+			<li>
+				<a class="{{ link.key }}" href="{{ link.url }}" title="{{ link.label }}">
+					<span class="sr-only">{{ link.label }}</span>
+				</a>
+			</li>
+		{% endfor %}
+	</ul>
+{% endif %}

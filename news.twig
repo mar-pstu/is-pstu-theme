@@ -1,0 +1,97 @@
+{% include( "parts/_header.twig" ) %}
+
+
+{% include( "parts/_heading.twig" ) %}
+
+
+{% include( "parts/_breadcrumbs.twig" ) %}
+
+
+{% include( "parts/_content.twig" ) %}
+
+
+{% if ( paged_pages ) %}
+
+	<h2 class="sr-only">Последние посты</h2>
+
+	<div role="list">
+		
+		{% for post in paged_pages | sort_by( 'time' ) | reverse if not post.hidden %}
+
+
+			<article class="post">
+
+				<a href="{{ post.url }}" class="thumbnail">
+					{% if post.meta.thumbnail %}
+						<img src="{{ config.assets_url }}/{{ post.meta.thumbnail }}" alt="{{ post.title | escape( 'html_attr' ) }}">
+					{% else %}
+						<img src="{{ theme_url }}/images/thumbnail.png" alt="{{ post.title | escape( 'html_attr' ) }}">
+					{% endif %}
+				</a>
+
+				<div class="overlay">
+					
+					<h3 class="title"><a href="{{ post.url }}">{{ post.title and post.title|trim|length ? post.title : post.url }}</a></h3>
+
+					{% if post.description and post.description|trim|length %}
+						<p>{{ post.description }}</p>
+					{% else %}
+						{{ post.id|content }}
+					{% endif %}
+
+					<div class="text-right small">
+
+						{% if post.meta.author and post.meta.author|trim|length %}
+							<span class="d-inline-block">Автор: {{ post.meta.author }}</span>
+						{% endif %}
+
+						{% if post.meta.date_formatted and post.meta.date_formatted|trim|length %}
+							<span class="d-inline-block">Дата: {{ post.meta.date_formatted }}</span>
+						{% endif %}
+
+					</div>
+
+				</div>
+
+			</article>
+
+		{% endfor %}
+
+		{% if prev_page_url or next_page_url %}
+			<h2 class="sr-only">Навігація постами</h2>
+
+			<div class="pagination mt-3 mb-3">
+
+				{% if prev_page_url %}
+					<a href="{{ prev_page_url }}" class="pagination-link pagination-link--prev">&larr; Попередня сторінка</a>
+				{% endif %}
+
+				<div class="pagination-summary">
+					<span class="small">Сторінка</span>
+					<span class="lead font-weight-bold text-primary">{{ page_number }}</span>
+					<span class="small">из</span>
+					<span class="lead font-weight-bold text-primary">{{ total_pages }}</span>
+				</div>
+
+				{% if next_page_url %}
+					<a href="{{ next_page_url }}" class="pagination-link pagination-link--next">Наступна сторінка &rarr;</a>
+				{% endif %}
+
+			</div>
+
+	  {% endif %}
+
+	</div>
+
+{% else %}
+
+	{% if current_page.meta.noposts and current_page.meta.noposts|trim|length %}
+		<p>{{ current_page.meta.noposts }}</p>
+	{% else %}
+		<p>Пости не знайдені!</p>
+	{% endif %}
+
+{% endif %}
+
+
+{% include( "parts/_footer.twig" ) %}

@@ -4,12 +4,12 @@
 
 .pager {
 	display: flex;
-	justify-content: space-between;
 	align-items: center;
 	margin-top: $indent * 2;
 	margin-bottom: $indent;
 	padding-top: $indent * 2;
 	border-top: .1rem solid $brand-primary;
+	width: 100%;
 }
 
 .pager .item {
@@ -34,29 +34,29 @@
 	transition: transform .2s;
 }
 
-.pager .item.next {
+.pager .item.previous {
 	flex-direction: row;
 }
 
-.pager .item.next::before {
+.pager .item.previous::before {
 	transform: rotate( 90deg );
 	margin-right: $indent;
 }
 
-.pager .item.next:hover::before {
+.pager .item.previous:hover::before {
 	transform: rotate( 90deg ) scale( 2 );
 }
 
-.pager .item.previous {
+.pager .item.next {
 	flex-direction: row-reverse;
-
+	margin-left: auto;
 }
 
-.pager .item.previous::before {
+.pager .item.next::before {
 	transform: rotate( -90deg );
 	margin-left: $indent;
 }
 
-.pager .item.previous:hover::before {
+.pager .item.next:hover::before {
 	transform: rotate( -90deg ) scale( 2 );
 }

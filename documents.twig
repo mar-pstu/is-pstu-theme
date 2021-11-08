@@ -1,0 +1,86 @@
+{% include( "parts/_header.twig" ) %}
+
+{% include( "parts/_heading.twig" ) %}
+
+
+{% include( "parts/_breadcrumbs.twig" ) %}
+
+
+{% if ( pages( current_page.id ) ) %}
+
+	<table id="documents" class="documents display responsive nowrap" style="width:100%" >
+		<thead>
+			<tr>
+				<th>Дата</th>
+				<th>Номер</th>
+				<th>Назва</th>
+				<th>Тип</th>
+				<th>Підрозділ</th>
+			</tr>
+		</thead>
+		<tbody>
+
+			{% for page in pages( current_page.id ) | sort_by( "time" ) | reverse if not page.hidden %}
+				<tr>
+					<td class="date">
+						{% if page.date_formatted and page.date|trim|length %}
+							{{ page.date_formatted }}
+						{% else %}
+							-
+						{% endif %}
+					</td>
+					<td class="number">
+						{% if page.meta.number and page.meta.number|trim|length %}
+							{{ page.meta.number }}
+						{% else %}
+							-
+						{% endif %}
+					</td>
+					<td class="title">
+						<a href="{{ page.url }}">
+							{% if page.description and page.description|trim|length %}
+								{{ page.description }}
+							{% else %}
+								{{ page.title }}
+							{% endif %}
+						</a>
+					</td>
+					<td class="type">
+						{% if page.meta.type and page.meta.type|trim|length %}
+							{{ page.meta.type }}
+						{% else %}
+							-
+						{% endif %}
+					</td>
+					<td class="author">
+						{% if page.meta.author and page.meta.author|trim|length %}
+							{{ page.meta.author }}
+						{% else %}
+							-
+						{% endif %}
+					</td>
+				</tr>
+			{% endfor %}
+
+		</tbody>
+		<tfoot>
+			<tr>
+				<th class="date">Дата</th>
+				<th class="number">Номер</th>
+				<th class="title">Назва</th>
+				<th class="type">Тип</th>
+				<th class="author">Підрозділ</th>
+			</tr>
+		</tfoot>
+	</table>
+
+{% endif %}
+
+
+{% include( "parts/_content.twig" ) %}
+
+
+{% include( "parts/_pager.twig" ) %}
+
+
+{% include( "parts/_footer.twig" ) %}

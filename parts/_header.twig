@@ -1,0 +1,38 @@
+<html lang="uk">
+	
+	{% include( "parts/_head.twig" ) %}
+
+	<body>
+		
+		<div id="wrapper" class="wrapper">
+			
+
+			<div id="column-side" class="column-side">
+				
+				<header id="header" class="header">
+					
+					<a href="{{ base_url }}" class="custom-logo-link">
+						<img id="custom-logo" src="{{ config.assets_url }}logo.svg" alt="{{ site_title }}" />
+					</a>
+
+					<a href="{{ base_url }}" class="blog-name"><strong>{{ site_title }}</strong></a>
+					
+					{% if config.description and config.description|trim|length %}
+					<p class="blog-description">{{ config.description }}</p>
+					{% endif %}
+
+				</header>
+
+				<form id="search-form" class="search-form" action="{{ "search"|link }}">
+					<input type="search" id="search_input" class="form-control" name="q" value="{{ url_param( 'q','string' ) }}" placeholder="Пошук по сайту..." />
+					<button type="submit" class="searchsubmit"><span class="sr-only">Шукати</span></button>
+				</form>
+
+				{% include( "parts/_nav.twig" ) %}
+
+				{% include( "parts/_links.twig" ) %}				
+
+			</div>
+
+			<div id="column-content" class="column-content">
+				<main id="main" class="main">

@@ -1,0 +1,11 @@
+{% if files %}
+	<div class="files grid">
+		{% for file in files %}
+			<div class="cell">
+				<a class="entry {{ file.extension }}" href="{{ file.url }}">
+					<span class="name">{{ file.name }}</span>
+				</a>
+			</div>
+		{% endfor %}
+	</div>
+{% endif %}

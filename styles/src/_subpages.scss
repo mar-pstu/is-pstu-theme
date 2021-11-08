@@ -4,6 +4,6 @@
 
 .subpages {
 	padding: $indent $indent * 2;	
-	background-color: lighten( $brand-default, 75% );
-	margin-bottom: $indent;
+	background-color: $border-color;
+	margin-bottom: $indent * 2;
 }

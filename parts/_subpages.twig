@@ -1,0 +1,7 @@
+{% if 'index' != current_page.id and 'hidden' != current_page.meta.subpages and pages( current_page.id ) %}
+	<ul class="subpages">
+		{% for page in pages( current_page.id )|sort_by( 'title' ) %}
+			<li><a href="{{ page.url }}">{{ page.title }}</a></li>
+		{% endfor %}
+	</ul>
+{% endif %}

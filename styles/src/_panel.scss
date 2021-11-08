@@ -1,0 +1,37 @@
+.panel {
+	border: .1rem solid $brand-default;
+	margin-top: $indent / 2;
+	margin-bottom: $indent / 2;
+}
+
+.panel .panel-title {
+	margin: 0;
+	background-color: $brand-default;
+	color: #fff;
+	padding: $indent / 2 $indent;
+}
+
+.panel > * {
+	margin: $indent / 2 $indent;
+}
+
+.panel ul,
+.panel ol {
+	margin-left: 0;
+}
+
+.panel.primary {
+	border-color: $brand-primary;
+}
+
+.panel.primary .panel-title {
+	background-color: $brand-primary;
+}
+
+.panel.success {
+	border-color: $brand-success;
+}
+
+.panel.success .panel-title {
+	background-color: $brand-success;
+}

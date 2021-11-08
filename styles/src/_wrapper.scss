@@ -1,25 +1,37 @@
 .wrapper {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	justify-content: stretch;
 	align-items: stretch;
 	width: 100vw;
 	height: 100vh;
 	overflow: hidden;
+	@media only screen and ( min-width: $screen-nav-hide ) {
+		flex-direction: row;
+	}
 }
 
 .column-side {
-	width: 20rem;
+	width: 100%;
 	flex-shrink: 0;
 	background-color: $brand-primary;
 	color: #fff;
 	display: flex;
-	flex-direction: column;
-	overflow-x: hidden;
-	overflow-y: auto;
+	flex-direction: row;
+	align-items: center;
+	flex-wrap: wrap;
+	// overflow-x: hidden;
+	// overflow-y: auto;
 	padding-left: $indent;
 	padding-right: $indent;
 	box-sizing: border-box;
+	position: relative;
+	@media only screen and ( min-width: $screen-nav-hide ) {
+		width: 20rem;
+		flex-direction: column;
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
 }
 
 .column-side a {
@@ -30,4 +42,7 @@
 	overflow-x: hidden;
 	overflow-y: auto;
 	box-sizing: border-box;
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
 }

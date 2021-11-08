@@ -1,8 +1,14 @@
 body {
-	font-size: $font-size-base;
+	font-size: $font-size-base * .75;
 	line-height: $line-height-base;
 	font-family: 'Montserrat', sans-serif;
 	color: $brand-default;
+	@media only screen and ( min-width: $screen-sm ) {
+		font-size: $font-size-base* .85;
+	}
+	@media only screen and ( min-width: $screen-md ) {
+		font-size: $font-size-base;
+	}
 }
 
 a:link,
@@ -18,3 +24,35 @@ a:hover {
 
 .sr-only { @extend %sr-only; }
 
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	border: none;
+	width: 100%;
+}
+
+table {
+	tr + tr {
+		border-top: 1px solid $brand-default;
+	}
+
+	td {
+		padding: $indent;
+		border: none;
+	}
+
+	thead tr th {
+		border-top: 1px solid $brand-default;
+		border-bottom: 1px solid $brand-default;
+		padding: $indent !important;
+		text-align: left;
+		color: #fff;
+		background-color: $brand-primary;
+	}
+
+	tfoot tr th,
+	tfoot tr td {
+		text-align: left;
+		padding: $indent !important;
+	}
+}
