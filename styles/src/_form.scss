@@ -27,6 +27,11 @@ input[ type="password" ] {
 	line-height: $line-height-base;
 	margin-top: $indent / 2;
 	margin-bottom: $indent / 2;
+	@media only screen and ( max-height: 768px ) {
+		padding: $indent / 6 $indent / 2;
+		margin-top: $indent / 4;
+		margin-bottom: $indent / 4;
+	}
 }
 
 select {

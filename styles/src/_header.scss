@@ -2,7 +2,7 @@
  * Шапка сайта
  * */
 .header {
-	margin: 1rem 0;
+	margin: $indent / 2 0;
 	text-align: center;
 	display: flex;
 	align-items: center;
@@ -10,6 +10,10 @@
 	order: 1;
 	@media only screen and ( min-width: $screen-nav-hide ) {
 		display: block;
+		width: 100%;
+	}
+	@media only screen and ( max-height: 768px ) {
+		margin: $indent / 4 0;
 	}
 }
 
@@ -21,6 +25,9 @@
 		max-width: 10rem;
 		margin-left: auto;
 		margin-right: auto;
+	}
+	@media only screen and ( max-height: 768px ) {
+		max-width: 5rem;
 	}
 }
 
@@ -34,8 +41,12 @@
 	display: block;
 	font-size: 150%;
 	font-weight: bold;
-	margin-top: .5rem;
-	margin-bottom: .5rem;
+	margin-top: $indent / 2;
+	margin-bottom: $indent / 2;
+	@media only screen and ( max-height: 768px ) {
+		margin-top: $indent / 4;
+		margin-bottom: $indent / 4;
+	}
 }
 
 .header .blog-name:hover {
@@ -44,10 +55,14 @@
 
 .header .blog-description {
 	@extend %small;
-	margin-top: .5rem;
-	margin-bottom: .5rem;
+	margin-top: $indent / 2;
+	margin-bottom: $indent / 2;
 	display: none;
 	@media only screen and ( min-width: $screen-nav-hide ) {
 		display: block;
+	}
+	@media only screen and ( max-height: 768px ) {
+		margin-top: $indent / 4;
+		margin-bottom: $indent / 4;
 	}
 }

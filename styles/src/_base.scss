@@ -3,6 +3,7 @@ body {
 	line-height: $line-height-base;
 	font-family: 'Montserrat', sans-serif;
 	color: $brand-default;
+	overflow-y: hidden;
 	@media only screen and ( min-width: $screen-sm ) {
 		font-size: $font-size-base* .85;
 	}

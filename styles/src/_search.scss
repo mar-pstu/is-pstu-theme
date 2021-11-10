@@ -42,7 +42,6 @@
 .search-results .entry .author,
 .search-results .entry .date {
 	@extend %small;
-	margin-left: auto;
 	padding-left: $indent;
 	padding-right: $indent;
 }
@@ -61,6 +60,7 @@
 	box-sizing: border-box;
 	width: 75%;
 	order: 2;
+	margin: 0;
 	@media only screen and ( min-width: $screen-xs ) {
 		width: 50%;
 	}

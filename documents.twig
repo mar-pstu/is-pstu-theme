@@ -22,22 +22,26 @@
 
 			{% for page in pages( current_page.id ) | sort_by( "time" ) | reverse if not page.hidden %}
 				<tr>
-					<td class="date">
-						{% if page.date_formatted and page.date|trim|length %}
-							{{ page.date_formatted }}
-						{% else %}
-							-
-						{% endif %}
+					<td>
+						<span class="col-inner date">
+							{% if page.date_formatted and page.date|trim|length %}
+								{{ page.date_formatted }}
+							{% else %}
+								-
+							{% endif %}
+						</span>
 					</td>
-					<td class="number">
-						{% if page.meta.number and page.meta.number|trim|length %}
-							{{ page.meta.number }}
-						{% else %}
-							-
-						{% endif %}
+					<td>
+						<span class="col-inner number">
+							{% if page.meta.number and page.meta.number|trim|length %}
+								{{ page.meta.number }}
+							{% else %}
+								-
+							{% endif %}
+						</span>
 					</td>
-					<td class="title">
-						<a href="{{ page.url }}">
+					<td>
+						<a href="{{ page.url }}" class="col-inner title">
 							{% if page.description and page.description|trim|length %}
 								{{ page.description }}
 							{% else %}
@@ -45,19 +49,23 @@
 							{% endif %}
 						</a>
 					</td>
-					<td class="type">
-						{% if page.meta.type and page.meta.type|trim|length %}
-							{{ page.meta.type }}
-						{% else %}
-							-
-						{% endif %}
+					<td>
+						<span class="col-inner type">
+							{% if page.meta.type and page.meta.type|trim|length %}
+								{{ page.meta.type }}
+							{% else %}
+								-
+							{% endif %}
+						</span>
 					</td>
-					<td class="author">
-						{% if page.meta.author and page.meta.author|trim|length %}
-							{{ page.meta.author }}
-						{% else %}
-							-
-						{% endif %}
+					<td>
+						<span class="col-inner author">
+							{% if page.meta.author and page.meta.author|trim|length %}
+								{{ page.meta.author }}
+							{% else %}
+								-
+							{% endif %}
+						</span>
 					</td>
 				</tr>
 			{% endfor %}
@@ -65,11 +73,11 @@
 		</tbody>
 		<tfoot>
 			<tr>
-				<th class="date">Дата</th>
-				<th class="number">Номер</th>
-				<th class="title">Назва</th>
-				<th class="type">Тип</th>
-				<th class="author">Підрозділ</th>
+				<th><span class="date">Дата</span></th>
+				<th><span class="number">Номер</span></th>
+				<th><span class="title">Назва</span></th>
+				<th><span class="type">Тип</span></th>
+				<th><span class="author">Підрозділ</span></th>
 			</tr>
 		</tfoot>
 	</table>
