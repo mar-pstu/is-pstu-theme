@@ -5,6 +5,7 @@
 	padding: $indent / 4;
 	transition: border-color .2s;
 	font-size: 75%;
+	background-color: #fff;
 	@media only screen and ( min-width: $screen-xs ) {
 		font-size: 85%;
 	}
@@ -18,7 +19,11 @@
 
 .files .entry:hover {
 	text-decoration: none;
-	border: 1px solid $brand-primary;
+	border-color: $brand-primary;
+}
+
+.files .entry:active {
+	border-color: $brand-success;
 }
 
 .files .entry::before {

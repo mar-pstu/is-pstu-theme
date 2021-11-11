@@ -1,3 +1,40 @@
+.heading {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	@media only screen and ( min-width: $screen-sm ) {
+		flex-direction: row;
+	}
+}
+
+.heading .thumbnail {
+	width: 5rem;
+	height: 5rem;
+	position: relative;
+	margin-right: $indent;
+	flex-shrink: 0;
+	@media only screen and ( min-width: $screen-md ) {
+		width: 7rem;
+		height: 7rem;
+	}
+}
+
+.heading .thumbnail img {
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate( -50%, -50% );
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+}
+
+.heading .inner {
+	flex-grow: 1;
+}
+
 .heading h1 {
 	border-bottom: .1rem solid $brand-primary;
 	margin-bottom: $indent;

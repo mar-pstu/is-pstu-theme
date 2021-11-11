@@ -8,7 +8,8 @@
 	justify-content: space-between;
 	align-items: center;
 	padding: $indent $indent * 2;
-	background-color: $border-color;
+	background-color: #fff;
+	border-top: .1rem solid $border-color;
 	box-sizing: border-box;
 	margin-top: auto;
 	width: 100%;

@@ -7,7 +7,8 @@ $line-height-base: 1.5;
 $brand-default: #262626;
 $brand-primary: #0c426f;
 $brand-success: #990100;
-$border-color: lighten( $brand-default, 75% );
+$border-color: lighten( $brand-default, 65% );
+// $border-color: rgba( 229, 229, 229, .75 );
 $indent: 1rem;
 
 

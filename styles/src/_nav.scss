@@ -9,7 +9,7 @@
 		width: 100%;
 		margin: $indent / 2 0;
 	}
-	@media only screen and ( max-height: 768px ) {
+	@media only screen and ( max-height: 767px ) {
 		margin: 0 0 $indent / 2 auto;
 	}
 }
@@ -42,7 +42,7 @@
 	display: block;
 	padding: $indent / 2 $indent * 2;
 	transition: background-color .2s;
-	@media only screen and ( max-height: 768px ) {
+	@media only screen and ( max-height: 767px ) {
 		padding: $indent / 4 $indent;
 	}
 }

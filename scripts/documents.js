@@ -16,6 +16,7 @@ window.onload = function() {
 						column.search( val ? val : '', true, false ).draw();
 					} );
 					column.data().unique().sort().map( function ( label ) {
+						label = label.replace( /(<([^>]+)>)/ig, '' ).trim();
 						if ( 'Дата' == column.header().innerText ) {
 							return label.match( /(?<year>[0-9]{4})[,|-|.| ](?<month>[0-9]{2})[,|-|.| ](?<day>[0-9]{2})/ )[ 1 ];
 						} else {

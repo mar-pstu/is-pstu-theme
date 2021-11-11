@@ -8,6 +8,8 @@ label {
 	margin-top: 1rem;
 }
 
+#documents_length select[name=documents_length],
+#documents_filter input[type=search],
 select,
 textarea,
 input[ type="tel" ],
@@ -27,7 +29,7 @@ input[ type="password" ] {
 	line-height: $line-height-base;
 	margin-top: $indent / 2;
 	margin-bottom: $indent / 2;
-	@media only screen and ( max-height: 768px ) {
+	@media only screen and ( max-height: 767px ) {
 		padding: $indent / 6 $indent / 2;
 		margin-top: $indent / 4;
 		margin-bottom: $indent / 4;
@@ -40,6 +42,20 @@ select {
 	background-repeat: no-repeat;
 	background-size: .75rem .75rem;
 	background-position: 90% 50%;
+}
+
+textarea.changed,
+#documents_length select[name=documents_length].changed,
+#documents_filter input[type=search].changed,
+select.changed,
+textarea.changed,
+input[ type="tel" ].changed,
+input[ type="text" ].changed,
+input[ type="number" ].changed,
+input[ type="email" ].changed,
+input[ type="search" ].changed,
+input[ type="password" ].changed {
+	border-color: $brand-success;
 }
 
 textarea {

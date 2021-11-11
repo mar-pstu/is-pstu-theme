@@ -1,9 +1,19 @@
 <div class="heading">
-	
-	<h1>{{ current_page.title ? current_page.title : meta.title }}</h1>
 
-	{% if ( current_page.description and current_page.description|trim|length ) or ( meta.description or meta.description|trim|length ) %}
-		<p>{{ current_page.description ? current_page.description : meta.description }}</p>
+	{% if current_page.meta.thumbnail %}
+		<div class="thumbnail">
+			<img src="{{ config.assets_url }}/{{ current_page.meta.thumbnail }}" alt="{{ post.title | escape( 'html_attr' ) }}">
+		</div>
 	{% endif %}
+	
+	<div class="inner">
+		
+		<h1>{{ current_page.title ? current_page.title : meta.title }}</h1>
+
+		{% if ( current_page.description and current_page.description|trim|length ) or ( meta.description or meta.description|trim|length ) %}
+			<p>{{ current_page.description ? current_page.description : meta.description }}</p>
+		{% endif %}
+
+	</div>
 
 </div>

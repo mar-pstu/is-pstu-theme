@@ -12,7 +12,7 @@
 		display: block;
 		width: 100%;
 	}
-	@media only screen and ( max-height: 768px ) {
+	@media only screen and ( max-height: 767px ) {
 		margin: $indent / 4 0;
 	}
 }
@@ -26,7 +26,7 @@
 		margin-left: auto;
 		margin-right: auto;
 	}
-	@media only screen and ( max-height: 768px ) {
+	@media only screen and ( max-height: 767px ) {
 		max-width: 5rem;
 	}
 }
@@ -43,7 +43,7 @@
 	font-weight: bold;
 	margin-top: $indent / 2;
 	margin-bottom: $indent / 2;
-	@media only screen and ( max-height: 768px ) {
+	@media only screen and ( max-height: 767px ) {
 		margin-top: $indent / 4;
 		margin-bottom: $indent / 4;
 	}
@@ -61,7 +61,7 @@
 	@media only screen and ( min-width: $screen-nav-hide ) {
 		display: block;
 	}
-	@media only screen and ( max-height: 768px ) {
+	@media only screen and ( max-height: 767px ) {
 		margin-top: $indent / 4;
 		margin-bottom: $indent / 4;
 	}
