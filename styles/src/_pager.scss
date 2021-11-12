@@ -3,12 +3,12 @@
  * */
 
 .pager {
+	@extend %bt;
 	display: flex;
 	align-items: center;
 	margin-top: $indent * 2;
 	margin-bottom: $indent;
 	padding-top: $indent * 2;
-	border-top: .1rem solid $brand-primary;
 	width: 100%;
 }
 

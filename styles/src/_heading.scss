@@ -10,7 +10,6 @@
 .heading .thumbnail {
 	width: 5rem;
 	height: 5rem;
-	position: relative;
 	margin-right: $indent;
 	flex-shrink: 0;
 	@media only screen and ( min-width: $screen-md ) {
@@ -21,14 +20,9 @@
 
 .heading .thumbnail img {
 	display: block;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate( -50%, -50% );
-	min-width: 100%;
-	min-height: 100%;
-	width: auto;
-	height: auto;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
 .heading .inner {
@@ -36,6 +30,6 @@
 }
 
 .heading h1 {
-	border-bottom: .1rem solid $brand-primary;
+	@extend %bb;
 	margin-bottom: $indent;
 }

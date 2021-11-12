@@ -20,7 +20,6 @@
 	}
 }
 
-
 .grid.two .cell {
 	@media only screen and ( min-width: $screen-sm ) {
 		width: 50%;
@@ -28,4 +27,12 @@
 	@media only screen and ( min-width: $screen-md ) {
 		width: 50%;
 	}
+}
+
+.grid.no-adaptive .cell {
+	width: 33.33%;
+}
+
+.grid.no-adaptive.two .cell {
+	width: 50%;
 }

@@ -1,0 +1,80 @@
+{% include( "parts/_header.twig" ) %}
+
+
+{% include( "parts/_breadcrumbs.twig" ) %}
+
+
+<h1 class="sr-only">{{ current_page.title ? current_page.title : meta.title }}</h1>
+
+
+<div class="grid three mb-0">
+	<div class="cell"></div>
+
+	<div class="cell pb-0">
+
+		{% if config.templates.order.gerb or current_page.meta.gerb %}
+			<p class="text-center">
+				<img class="d-inline-block" src="{{ config.assets_url }}{{ current_page.meta.gerb ? current_page.meta.gerb : config.templates.order.gerb }}" alt="Герб">
+			</p>
+		{% endif %}
+
+
+		{% if current_page.meta.organization or config.templates.order.organization %}
+			<p class="small text-center">{{ current_page.meta.organization ? current_page.meta.organization : config.templates.order.organization }}</p>
+		{% endif %}
+
+		{% if current_page.meta.suborganization or config.templates.order.suborganization %}
+			<p class="text-center mb-0">{{ current_page.meta.suborganization ? current_page.meta.suborganization : config.templates.order.suborganization }}</p>
+		{% endif %}
+
+	</div>
+
+	<div class="cell"></div>
+</div>
+
+<p class="text-center tt-uppercase h1">НАКАЗ</p>
+
+{% if current_page.meta.city or config.templates.order.city %}
+	<p class="text-center font-weight-bold small mt-3 mb-3">{{ current_page.meta.city ? current_page.meta.city : config.templates.order.city }}</p>
+{% endif %}
+
+<div class="grid two no-adaptive mt-3 mb-3">
+
+	{% if current_page.date_formatted and current_page.date|trim|length %}
+		<div class="cell">
+			<p class="text-left font-weight-bold">від {{ current_page.date_formatted }}</p>
+		</div>
+	{% endif %}
+
+	{% if current_page.meta.number and current_page.meta.number|trim|length %}
+		<div class="cell">
+			<p class="text-right font-weight-bold">№{{ current_page.meta.number }}</p>
+		</div>
+	{% endif %}
+
+</div>
+
+{% if current_page.meta.description %}
+	<div class="grid three">
+		<div class="cell">
+			<p class="block-with-corners">{{ current_page.meta.description }}</p>
+		</div>
+	</div>
+{% endif %}
+
+
+<div class="mb-3">
+	{% include( "parts/_content.twig" ) %}
+</div>
+
+
+{% include( "parts/_files.twig" ) %}
+
+
+{% include( "parts/_subpages.twig" ) %}
+
+
+{% include( "parts/_pager.twig" ) %}
+
+
+{% include( "parts/_footer.twig" ) %}
