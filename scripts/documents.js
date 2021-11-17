@@ -7,26 +7,34 @@ window.onload = function() {
 		initComplete: function () {
 			this.api().columns().every( function ( index ) {
 				let column = this;
-				if ( 'Тип' == column.header().innerText || 'Підрозділ' == column.header().innerText || 'Дата' == column.header().innerText ) {
-					jQuery( column.footer() ).empty();
-					let select = jQuery( '<select><option value=""></option></select>' ).appendTo( jQuery( column.footer() ) ).on( 'change', function () {
-						var val = $.fn.dataTable.util.escapeRegex(
-							jQuery( this ).val()
-						);
-						column.search( val ? val : '', true, false ).draw();
-					} );
+				let options = [];
+				let select = null;
+				if ( 'Тип' == column.header().innerText || 'Підрозділ' == column.header().innerText || 'Дата' == column.header().innerText ) {						
 					column.data().unique().sort().map( function ( label ) {
 						label = label.replace( /(<([^>]+)>)/ig, '' ).trim();
 						if ( 'Дата' == column.header().innerText ) {
-							return label.match( /(?<year>[0-9]{4})[,|-|.| ](?<month>[0-9]{2})[,|-|.| ](?<day>[0-9]{2})/ )[ 1 ];
+							options.push( label.match( /(?<year>[0-9]{4})[,|-|.| ](?<month>[0-9]{2})[,|-|.| ](?<day>[0-9]{2})/ )[ 1 ] );
 						} else {
-							return label.toLowerCase();
+							label.toLowerCase().split( ',' ).map( function ( label ) {
+								options.push( label.trim() );
+							} );
 						}
-					} ).filter( function( label, position, self ) {
-						return self.indexOf( label ) == position;
-					} ).each( function ( label ) {
-						select.append( '<option value="' + label + '">' + label + '</option>' );
 					} );
+					options = options.filter( function( value, position, options ) {
+						return options.indexOf( value ) == position;
+					} );
+					if ( options.length > 1 ) {
+						jQuery( column.footer() ).empty();
+						select = jQuery( '<select><option value=""></option></select>' ).appendTo( jQuery( column.footer() ) ).on( 'change', function () {
+							let val = $.fn.dataTable.util.escapeRegex(
+								jQuery( this ).val()
+							);
+							column.search( val ? val : '', true, false ).draw();
+						} );
+						options.map( function ( value ) {
+							select.append( '<option value="' + value + '">' + value + '</option>' );
+						} );
+					}
 				}
 			} );
 		}

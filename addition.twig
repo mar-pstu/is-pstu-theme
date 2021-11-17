@@ -1,0 +1,43 @@
+{% include( "parts/_header.twig" ) %}
+
+
+{% include( "parts/_breadcrumbs.twig" ) %}
+
+
+<div class="grid four mb-0">
+	
+	<div class="cell"></div>
+	<div class="cell"></div>
+	<div class="cell"></div>
+
+	<div class="cell pb-0 font-weight-bold">
+		<p>
+			Додаток <br>
+			{% if config.templates.addition.approved %}
+				ЗАТВЕРДЖЕНО <br>
+				{{ config.templates.addition.approved }} <br>
+			{% endif %}
+			від {{ current_page.date_formatted ? current_page.date_formatted : '_________ . ___ . ___' }}
+			№{{ current_page.meta.number ? current_page.meta.number : '___' }}
+		</p>
+	</div>
+
+</div>
+
+<h1 class="text-center">{{ current_page.title ? current_page.title : meta.title }}</h1>
+
+<div class="mb-3">
+	{% include( "parts/_content.twig" ) %}
+</div>
+
+
+{% include( "parts/_files.twig" ) %}
+
+
+{% include( "parts/_subpages.twig" ) %}
+
+
+{% include( "parts/_pager.twig" ) %}
+
+
+{% include( "parts/_footer.twig" ) %}
