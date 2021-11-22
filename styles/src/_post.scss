@@ -21,6 +21,10 @@
 	display: block;
 }
 
+.post .overlay {
+	flex-grow: 1;
+}
+
 .post .title {
 	margin-top: 0;
 	margin-bottom: 0;

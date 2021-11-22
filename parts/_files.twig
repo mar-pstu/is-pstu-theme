@@ -1,6 +1,6 @@
-{% if files %}
+{% if current_page.meta.files %}
 	<div class="files grid">
-		{% for file in files %}
+		{% for file in current_page.meta.files %}
 			<div class="cell">
 				<a class="entry {{ file.extension }}" href="{{ file.url }}">
 					<span class="name">{{ file.name }}</span>

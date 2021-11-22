@@ -39,14 +39,14 @@
 						{{ post.id|content }}
 					{% endif %}
 
-					<div class="text-right small">
-
-						{% if post.meta.author and post.meta.author|trim|length %}
-							<span class="d-inline-block">Автор: {{ post.meta.author }}</span>
-						{% endif %}
+					<div class="small">
 
 						{% if post.meta.date_formatted and post.meta.date_formatted|trim|length %}
-							<span class="d-inline-block">Дата: {{ post.meta.date_formatted }}</span>
+							<span class="d-inline-block mr-3">Дата: <b>{{ post.meta.date_formatted }}</b></span>
+						{% endif %}
+
+						{% if post.meta.author and post.meta.author|trim|length %}
+							<span class="d-inline-block">Автор: <b>{{ post.meta.author }}</b></span>
 						{% endif %}
 
 					</div>

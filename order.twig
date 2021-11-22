@@ -40,17 +40,17 @@
 
 <div class="grid two no-adaptive mt-3 mb-3">
 
-	{% if current_page.date_formatted and current_page.date|trim|length %}
-		<div class="cell">
+	<div class="cell">
+		{% if current_page.date_formatted and current_page.date|trim|length %}
 			<p class="text-left font-weight-bold">від {{ current_page.date_formatted }}</p>
-		</div>
-	{% endif %}
+		{% endif %}
+	</div>
 
-	{% if current_page.meta.number and current_page.meta.number|trim|length %}
-		<div class="cell">
+	<div class="cell">
+		{% if current_page.meta.number and current_page.meta.number|trim|length %}
 			<p class="text-right font-weight-bold">№{{ current_page.meta.number }}</p>
-		</div>
-	{% endif %}
+		{% endif %}
+	</div>
 
 </div>
 
