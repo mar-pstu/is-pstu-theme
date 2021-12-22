@@ -7,8 +7,11 @@
 	{% endif %}
 	
 	<div class="inner">
-		
-		<h1>{{ current_page.title ? current_page.title : meta.title }}</h1>
+
+		<div class="title">
+			<h1>{{ current_page.title ? current_page.title : meta.title }}</h1>
+			{% include( "parts/_share.twig" ) %}
+		</div>
 
 		{% if ( current_page.description and current_page.description|trim|length ) or ( meta.description or meta.description|trim|length ) %}
 			<p>{{ current_page.description ? current_page.description : meta.description }}</p>

@@ -29,7 +29,13 @@
 	flex-grow: 1;
 }
 
-.heading h1 {
+.heading .title {
 	@extend %bb;
 	margin-bottom: $indent;
+	display: flex;
+	align-items: center;
+}
+
+.heading .title .share {
+	margin-left: auto;
 }

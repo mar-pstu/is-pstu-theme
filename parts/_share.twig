@@ -1,0 +1,5 @@
+{% if current_page.meta.public_link %}
+	<button class="share" data-link="{{ current_page.meta.public_link | escape }}" data-success="Посилання скопійоване">
+		Скопіювати url у буфер
+	</button>
+{% endif %}
